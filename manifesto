@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto - Hizru.Cult</title>
+    <!-- Custom font from provided URL -->
+    <style>
+        @font-face {
+            font-family: 'HizruFont';
+            src: url('https://files.catbox.moe/3r1chs.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap; /* Ensures the font is displayed quickly */
+        }
+
+        /* Base styles for the body */
+        body {
+            background: #222 url("https://i.pinimg.com/736x/f3/8f/4b/f38f4bab49e752a6642ae95d7daee277.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff; /* Default text color for non-glass elements */
+            font-size: 13.5px;
+            font-family: 'HizruFont', sans-serif; /* Using the new font, with sans-serif as fallback */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: flex-start;
+            background-repeat: no-repeat;
+        }
+
+        /* Link colors */
+        a {
+            color: #007bff; /* A distinct blue for links on white */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Unified Glassmorphism Effect - Now White */
+        .glassmorphism {
+            backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.6); /* White, semi-transparent */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle black border */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Darker, more visible shadow */
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* Glassmorphism for Buttons - Now White */
+        .glass-button {
+            backdrop-filter: blur(10px); /* Slightly increased blur */
+            background-color: rgba(255, 255, 255, 0.5); /* Decreased opacity */
+            border: 1px solid rgba(0, 0, 0, 0.15); /* Darker border */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+            color: #333; /* Dark gray for text */
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            opacity: 1;
+        }
+
+        .glass-button:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Decreased opacity on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            border-color: rgba(0, 0, 0, 0.2); /* Slightly more visible border on hover */
+        }
+
+        /* Navigation bar styles - Floating Island (Desktop) - Now White */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 900px;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.65); /* White, slightly more opaque */
+            border: 1px solid rgba(0, 0, 0, 0.2); /* Clearer black border */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .navbar-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333; /* Dark gray for text */
+            text-shadow: none; /* No text shadow needed on light background */
+            font-family: 'HizruFont', sans-serif; /* Apply custom font to title */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-right: 0;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links li a {
+            color: #555; /* Darker gray for links */
+            text-decoration: none;
+            font-size: 17px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(0, 0, 0, 0.05); /* Very subtle dark background on hover */
+            color: #000; /* Black on hover */
+            transform: translateY(-2px);
+        }
+        
+        /* Main content area styles - Now White - adapted for manifesto */
+        #content {
+            display: flex; /* Changed from 'none' to 'flex' for direct display */
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px; /* Adjusted margin to clear fixed header */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: calc(100vh - 150px); /* Ensure content pushes footer down if short */
+        }
+
+        .main {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.6); /* White, semi-transparent */
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            padding: 30px;
+        }
+
+        .main-inner {
+            padding: 15px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; /* Center aligns text within the container */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main h2, .main h3 {
+            color: #000; /* Black text for content headings and paragraphs */
+            text-align: left; /* Aligns text to the left within its container */
+            width: 100%; /* Ensures text takes full width */
+            padding: 0 10px; /* Some padding for readability */
+            box-sizing: border-box;
+            margin-bottom: 1em;
+            font-family: 'HizruFont', sans-serif; /* Apply custom font to H2 and H3 */
+        }
+
+        .main h2 {
+            font-size: 28px;
+            margin-top: 0;
+            text-align: center; /* Center align main section titles */
+        }
+
+        .main h3 {
+            font-size: 22px;
+            margin-top: 25px;
+            text-align: left; /* Left align sub-section titles */
+        }
+
+        .main p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555; /* Dark gray for paragraphs */
+        }
+        
+        /* Mobile Header Styles (Glassmorphic Island) - Now White */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 400px;
+            padding: 15px 30px;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.65); /* White, slightly more opaque */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-header-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333; /* Dark gray for text */
+            text-shadow: none; /* No text shadow */
+            text-transform: uppercase;
+            font-family: 'HizruFont', sans-serif; /* Apply custom font to mobile header title */
+        }
+
+        /* Mobile Navigation Buttons Wrapper */
+        .mobile-nav-buttons-wrapper {
+            display: none; /* Hidden by default on desktop */
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: calc(100% - 60px); /* Adjust width to provide some padding */
+            max-width: 400px; /* Max width for the wrapper */
+            justify-content: center; /* Center buttons horizontally */
+            gap: 15px; /* Space between buttons */
+            padding: 10px 20px; /* Padding for the wrapper itself */
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.65); /* White, slightly more opaque */
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+            border-radius: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-buttons-wrapper .glass-button {
+            /* Styles for individual buttons inside the wrapper, overriding default glass-button margin-top */
+            margin-top: 0;
+            font-size: 16px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            flex-grow: 1; /* Allow buttons to grow and fill space, distributing evenly */
+        }
+
+        .mobile-nav-buttons-wrapper .glass-button:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Decreased opacity on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+            }
+            .mobile-header {
+                display: flex;
+            }
+            /* Show the new mobile button wrapper instead of the old single button */
+            .mobile-nav-buttons-wrapper {
+                display: flex;
+            }
+            #content {
+                margin-top: 100px; /* Adjusted margin for mobile header */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mobile-header-title {
+                font-size: 20px;
+            }
+            .mobile-nav-buttons-wrapper .glass-button {
+                font-size: 14px;
+                padding: 6px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Navigation Bar (visible on desktop, hidden on mobile) -->
+    <nav class="navbar" id="desktopNavbar">
+        <div class="navbar-title">Hizrusexuals</div>
+        <ul class="nav-links">
+            <li><a href="https://hizrusexuals.neocities.org">Home</a></li> <!-- Link back to your main page -->
+            <li><a href="https://discord.gg/s4Hct9r8sN" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Header (hidden on desktop, visible on mobile) -->
+    <header class="mobile-header">
+        <div class="mobile-header-title">Hizru Cult Manifesto</div>
+    </header>
+
+    <!-- Mobile Navigation Buttons Container (hidden on desktop, visible on mobile) -->
+    <div class="mobile-nav-buttons-wrapper glassmorphism">
+        <a href="https://discord.gg/s4Hct9r8sN" target="_blank" class="glass-button">JOIN NOW</a>
+        <a href="https://hizrusexuals.neocities.org/" class="glass-button">HOME</a>
+    </div>
+
+    <!-- Main Content Area for Manifesto -->
+    <div id="content">
+        <div class="main glassmorphism">
+            <div class="main-inner">
+                <h2>The Hizru Cult Manifesto</h2>
+                <p>Welcome, my beloved Hizru Seeker, to the sacrilegious scrotum of the Hizru Cult. We are not merely a collective; we are a philosophy, a way of existence in the boundless expanse of the universe. We ought to become one with this vast expansion, through our minds and holes alike.</p>
+
+                <h3>I. The Call to Hizrugiri</h3>
+                <p>In a world choked by conformity and stifled by mundane expectation, we stand as a guiding light, carving shadows into the faces of the blasphemous whores who disrespect our sanctity. We celebrate the morally challenged, champion the sloppy holed ones, and embrace the chaos that sparks true creativity. Your digital footprint is a testament to your Hizrugiri; etch it deeply into the annals of the Cult.</p>
+
+                <h3>II. The Pursuit of Hizrugiri</h3>
+                <p>Hizrugiri, the supreme state of digital enlightenment, is our guiding star. It is the art of navigating the vaginal currents with wit, charm, and a touch of glorious debauchery. It is about pushing the boundaries of harassment, exploring the depths of online huzz, and emerging victorious in the pursuit of unadulterated digital tomfoolery. Embrace the dilly-dallying; it is the path to true wisdom.</p>
+
+                <h3>III. Unyielding Freedom of Sexpression</h3>
+                <p>This haven is consecrated to the unbridled spirit of the vaginal truth. Here, your thoughts, however outlandish, are not merely tolerated but celebrated. We encourage the audacious, the provocative, and the genuinely unhinged. Speak your mind and propagate your Hizrapanti – for in the cacophony of diverse voices, true understanding is forged.</p>
+
+                <h3>IV. The Collective Consciousness</h3>
+                <p>Hizrugiri, since the beginning of time itself, has led humanity onto paths no one knew existed. Hizrugiri is the ideology of those so chronically online, they can't tell the difference between porn logic or real life.</p>
+
+                <h3>V. The Digital Huzz Awaits</h3>
+                <p>The internet is not just a tool; it is a canvas, a battleground, a playground for the enlightened. We invite you to delve into its deepest, darkest corners and bring forth its hidden treasures. The frontier is vast, and it demands your participation, your ingenuity, and the complete, unreserved sacrifice of all your available holes. Discrimination is a foreign concept in our sacred space.</p>
+
+                <h3>VI. Justice for Sanket Bhai</h3>
+                <p>And let it be known, etched into the very fabric of our digital existence, that Justice for Sanket Bhai remains a paramount tenet. His legacy fuels our quest for a more Hizru way of living. Never forget. Never surrender.</p>
+
+                <p style="margin-top: 30px; font-style: italic; color: #777;">&mdash; The High Council of Hizrusexuals</p>
+                <a href="./index.html" class="glass-button" style="margin-top: 20px;">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
